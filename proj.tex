@@ -1,0 +1,147 @@
+% Genetic Programming 
+\documentclass{article}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+%\doublespacing
+
+% this is for the code blocks 
+\usepackage{listings}
+
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+%\fancyhead[CO,CE]{Genetic Programming}
+%\fancyhead[LO,LE]{Factoring and Number Theory}
+
+\pagestyle{fancyplain}
+\begin{document}
+
+\bibliographystyle{plain}
+
+\title{Factoring and Number Theory}
+\author{Fred Concklin \\ Hampshire College \\ \texttt{fred@fredri.cc} \and Nicholas \\ Amherst College \\ \texttt{nicdevel@gmail.com}}
+
+\maketitle
+
+\tableofcontents
+
+\pagebreak
+
+\section[General Overview]{General Overview (techniques, application, background)}
+
+We are working on using Genetic Programming techniques to research number theoretical problems with a primary focus on prime number factorization and discrete logarithm computation. Our genetic programming work will be done using the Scheme implementation of the \href{http://hampshire.edu/lspector/push.html}{Push programming language} ( \href{http://push.i3ci.hampshire.edu/2009/09/21/schush-updates/}{Schush} ) to write fitness functions then deployed in the Erlang implementation of the Push programming language (Erlush). Using Erlush, we can run separate gp runs as erlang nodes (virtual machines) that interface with an administrative head node to control each distributed process and potentially transfer information between nodes. 
+
+\subsection{Integer Factorization}
+
+placeholder
+
+\subsection{Discrete Logarithm}
+
+placeholder
+
+\subsection{Comparison of Mathematical Problems}
+
+placeholder
+
+\subsection{Preventing the Bruteforce Solution}
+
+placeholder
+
+\section[General Team and Project Guidelines]{General Team and Project Guidelines}
+
+\begin{itemize}
+
+  \item Define full schedule of weekly milestones from the start. Revise regularly (write it down!).
+
+  \item Have something significant to show \& tell every week.
+
+  \item Each group is different and each project is different, and the working arrangement and project direction will both always be works in progress.
+
+  \item Each person should have a full and reasonable and interesting workload at all times.
+
+  \item Come to me with any problems, early.
+
+  \item I evaluate individuals, not groups. Self-evals must describe individual contributions. 
+
+\end{itemize}
+
+\section[Weekly Milestones]{Weekly Milestones}
+
+\subsection{Week 1 : 3/21/10 - 3/27/10}
+
+\begin{itemize}
+
+  \item Setup git repository 
+
+The git repository is setup and hosted at \href{http://fredri.cc/gitweb/?p=gp.git;a=summary}{http://fredri.cc/gitweb/?p=gp.git;a=summary}. You can use the following commands to pull from the git repository: 
+
+\begin{lstlisting}[language=bash,frame=single]
+$ git clone git://fredri.cc/gp.git
+\end{lstlisting}
+
+If you would like access to push to the git repository, please email your ssh public key (id\_rsa.pub) to \href{mailto:fred@fredri.cc}{fred@fredri.cc}. There is a good git tutorial \href{http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html}{here} for those who would like to work with our code. 
+
+  \item writeup and timeline outline 
+
+  \item get schush (plt-scheme) working in emacs with REPL\footnote{Previous work in this area is in the sinx folder of the git repository}. 
+
+  \item get accounts for Fred and Nick on Hampshire cluster.
+
+  \item get accounts for Fred and Nick on Amherst cluster.
+
+  \item discuss prevention of brute-force genetic algorithm 
+
+\end{itemize}
+
+\subsection{Week 2 : 3/28/10 - 4/03/10}
+
+\begin{itemize}
+  \item write fitness function for integer factorization 
+
+  \item write fitness function for discrete logarithm computation 
+
+  \item begin troubleshooting/initial results runs in erlush on Amherst and Hampshire clusters 
+
+\end{itemize}
+
+
+\subsection{Week 3 : 4/04/10 - 4/10/10}
+
+placeholder 
+
+\subsection{Week 4 : 4/11/10 - 4/17/10}
+
+placeholder
+
+\subsection{Week 5 : 4/18/10 - 4/24/10}
+
+placeholder
+
+\subsection{Week 6 : 4/25/10 - 5/01/10}
+
+placeholder
+
+
+% #################### Bibliography ####################
+
+\pagebreak
+
+% this is currently broken :(
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+
+
+\begin{thebibliography}{9}
+
+  \bibitem{finkel}
+    Jenny Rose Finkel.
+    \emph{Using Genetic Programming To Evolve an Algorithm for Factoring Numbers}.
+    Stanford University, Stanford, Ca. 
+    Date Currently Unknown.
+
+\end{thebibliography}
+
+\end{document}

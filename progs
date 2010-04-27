@@ -1,0 +1,85 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- Report at generation 999
+Best program:((9) integer.- 2 in in integer.+ 2 integer.+ 2 integer.* in in integer.+ 9 3 integer.+ 9 in integer.- integer.+ integer.+ integer.* in in integer.- integer.+ integer.+ 2 integer./)
+Partial simplification (may beat best): (2 in in integer.+ 2 integer.+ 2 integer.* in in integer.+ 9 3 integer.+ 9 in integer.- integer.+ integer.+ integer.* in integer.- integer.+ integer.+ 2 integer./)
+Errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10/37 0 0)
+Total: 10/37
+Scaled: 10/37
+Size: 31
+
+Average total errors in population: 1199.8171221897871
+Median total errors in population: 10/37
+Average program size in population (points): 42.66
+Producing offspring...
+FAILURE
+
+
+####################################################################################################
+
+step: 1000
+program: (8 6 in integer.+ integer.* in integer.- in in integer.* integer.+ 5 in integer.- integer.+ integer.+)
+errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+total: 0
+size: 17
+
+####################################################################################################
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- Report at generation 999
+Best program:(6 (integer.+) in (integer.+) 6 integer.* 1 in 3 integer.* integer.* 1 5 integer.+ in integer.+ integer.* integer.+ 8 in integer.* (integer.+ integer./ in (integer.+ integer./) integer./) 1 (integer.+ (integer.+ (integer.-) (integer.* (integer.+)) integer.+ (integer.+)) integer.* integer.-))
+Partial simplification (may beat best): (6 (integer.+) in (integer.+) 6 integer.* 1 in 3 integer.* 1 5 integer.+ in integer.+ integer.* integer.+ 8 in integer.* (in integer.+) ((integer.+ integer.+) integer.*))
+Errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 30/59 0)
+Total: 30/59
+Scaled: 0.012401818933443571
+Size: 48
+
+Average total errors in population: 578.7551588142941
+Median total errors in population: 30/47
+Average program size in population (points): 39.26
+Producing offspring...
+FAILURE
+
+####################################################################################################
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; -*- Report at generation 12
+Best program:(7 in integer.+ in integer.+ integer.* 7 integer.+ 3 2 integer.* 1 6 integer.* integer.* 6 integer.- integer.+ in integer.+)
+Partial simplification (may beat best): (7 in integer.+ in integer.+ integer.* 7 integer.+ 3 2 integer.* 1 6 integer.* integer.* 6 integer.- integer.+ in integer.+)
+Errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+Total: 0
+Scaled: 0.0
+Size: 21
+
+Average total errors in population: 2119.9779558089435
+Median total errors in population: 47211110325888656927874970988337475131002/2300851053236980661631865545916597220021
+Average program size in population (points): 30.692
+
+SUCCESS at generation 12
+Successful program: (7 in integer.+ in integer.+ integer.* 7 integer.+ 3 2 integer.* 1 6 integer.* integer.* 6 integer.- integer.+ in integer.+)
+Errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+Total error: 0
+Size: 21
+
+
+Auto-simplifying with starting size: 21
+step: 0
+program: (7 in integer.+ in integer.+ integer.* 7 integer.+ 3 2 integer.* 1 6 integer.* integer.* 6 integer.- integer.+ in integer.+)
+errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+total: 0
+size: 21
+
+step: 1000
+program: (7 in integer.+ in integer.+ integer.* 7 integer.+ 3 2 integer.* 6 integer.* 6 integer.- integer.+ in integer.+)
+errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+total: 0
+size: 19
+
+
+####################################################################################################
+
+SUCCESS at generation 68
+Successful program: ((((2) (integer.+ 3) in) integer.+ integer.*) (((integer.* 3 integer.*) integer./ (6 4 integer.+ (integer.+ integer./)) integer.*) (9 integer.+ integer.*) (integer.+ integer.+ ((integer.+)))) integer.* (4) integer.+)
+Errors: (0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0)
+Total error: 0
+Size: 40
