@@ -2241,11 +2241,10 @@ state)
 				       (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list))
 				       )
 
-				       (cond
-					((= input (- prime-range 1))
+
 				        (fprintf (current-output-port)
 				        		"~n values: ~a  ~n primes: ~a"
-				        		value-list is-prime-list)))
+				        		value-list is-prime-list)
 
 
 )

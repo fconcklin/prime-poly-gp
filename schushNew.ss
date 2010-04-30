@@ -1714,10 +1714,11 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 		  (set! value-list (cons (top 'integer state) value-list))
 		  (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list)))
 		  
-		)
+		(cond
+		 ((= input (- prime-range 1))
 		  (fprintf (current-output-port)
 			   "~n values: ~a  ~n primes: ~a"
-			   value-list is-prime-list)))))))
+			   value-list is-prime-list))))))))))
 
 
 (define report 
@@ -1733,7 +1734,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
               (individual-program 
                (auto-simplify (individual-program best) error-function report-simplifications #f)))
       (printf "~%Errors: ~A" (individual-errors best))
-;;      (test-report population)
+      (test-report population)
       (printf "~%Total: ~A" (individual-total-error best))
       (printf "~%Scaled: ~A" (individual-scaled-error best))
       (printf "~%Size: ~A" (count-points (individual-program best)))
@@ -1873,14 +1874,14 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
                                                                        (list (lambda () (random 100))
                                                                              (lambda () (random)))))
                             #:max-generations (max-generations 1001)
-                            #:mutation-probability (mutation-probability 0.6) ;; was .4
+                            #:mutation-probability (mutation-probability 0.4)
                             #:mutation-max-points (mutation-max-points 20)
                             #:crossover-probability (crossover-probability 0.4)
-                            #:simplification-probability (simplification-probability 0.5)
+                            #:simplification-probability (simplification-probability 0.0)
                             #:tournament-size (tournament-size 10)
                             #:scale-errors (scale-errors #f)
-                            #:report-simplifications (report-simplifications 2)
-                            #:final-report-simplifications (final-report-simplifications 3)
+                            #:report-simplifications (report-simplifications 0)
+                            #:final-report-simplifications (final-report-simplifications 0)
                             #:reproduction-simplifications (reproduction-simplifications 0)
                             #:trivial-geography-radius (trivial-geography-radius 5) ;; 0 means no trivial geography
                             #:compensatory-mate-selection (compensatory-mate-selection #f))
@@ -2033,6 +2034,11 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 				  (else (count-elem e (cdr l))))))
 
 			     (for/list ([input (in-range prime-range)])
+				       ;; (cond
+				       ;; 	( (= input (- prime-range 1)) 
+				       ;; 	 (fprintf (current-output-port)
+				       ;; 		  "~n values: ~a  ~n"
+				       ;; 		  (flatten value-list))))
 				       (let* ((state (make-schush-state)))
 					 (push input 'integer state) ;; push integers from range onto stack 
 					 (push input 'auxiliary state)
@@ -2056,8 +2062,3 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 	  #:scale-errors #t
           #:compensatory-mate-selection #t)
 
-				       ;; (cond
-				       ;; 	( (= input (- prime-range 1)) 
-				       ;; 	 (fprintf (current-output-port)
-				       ;; 		  "~n values: ~a  ~n"
-				       ;; 		  (flatten value-list))))
