@@ -1,6 +1,21 @@
 <<<<<<< HEAD
 Prime Generating Polynomials 
 
+Across multiple gp runs, similar error values continue to emerge which prevent progress. 
+
+Values such as: 
+
+Error  	    Values	Product of Primes 
+10/41	    1681 	41,41
+830/1763    1763	41,43
+890/2021    2021 	43,47
+
+These values are products of primes. 
+
+      - research products of primes 
+      	- effect on totient values 
+	- heuristic for fitness function (modification) 
+
 
 Threads 
 

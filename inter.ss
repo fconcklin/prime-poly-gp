@@ -2221,19 +2221,23 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 ;   (run-schush '(1 2 integer.+) s)
 ;   (top 'integer s))
 
+
+
 (require (planet soegaard/math:1:4/math))  
 (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 
 (define value-list '())			   
 (define is-prime-list '())
-(define prime-range 20)
+(define prime-range 50)
 
 			     (for/list ([input (in-range prime-range)])
 				       (let* ((state (make-schush-state)))
 					 (push input 'integer state) ;; push integers from range onto stack 
 					 (push input 'auxiliary state)
 					 (run-schush
-					  '((((2) (integer.+ 3) in) integer.+ integer.*) (((integer.* 3 integer.*) integer./ (6 4 integer.+ (integer.+ integer./)) integer.*) (9 integer.+ integer.*) (integer.+ integer.+ ((integer.+)))) integer.* (4) integer.+) 
+		'((integer./ integer.* (integer.- (integer.- 2))) integer.- (integer.* (in integer.* integer./ integer.+) (integer.- (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.+ ((in integer./ integer.* (5) (in)) integer.+ integer.+)))
+
+
 
 state)
 

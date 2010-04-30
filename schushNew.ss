@@ -1696,29 +1696,58 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 ;;;;;;;;;;;;;;;;;;;;;;;FREDFRED
 
 (define test-report
-  (lambda (population)
+  (lambda (population generation error-function report-simplifications)
+;;    (define-values (value-list is-prime-list prime-range) (values '() '() 50))  
+
     (let* ((sorted (sort population < #:key individual-total-error))
 	   (best (car sorted)))
-      (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 
-      (let* ([value-list '()])
-      (let* ([is-prime-list '()])
-      (let* ([prime-range 50])
+    (define value-list '())			   
+    (define is-prime-list '())
+    (define prime-range 30)
+
+      (define-registered in (lambda (pog) (push (stack-ref 'auxiliary 0 pog) 'integer pog))) ;; may be state conflict?
+  
+
+       (let* ([value-list '()])
+       (let* ([is-prime-list '()])
+       (let* ([prime-range 50])
 
       (for/list ([input (in-range prime-range)])
-		(let* ((state (make-schush-state)))
-		  (push input 'integer state) ;; push integers from range onto stack 
-		  (push input 'auxiliary state)
-		  (run-schush best state)
+		(let* ((pog (make-schush-state)))
+		  (push input 'integer pog) ;; push integers from range onto stack 
+		  (push input 'auxiliary pog)
+		  (run-schush best pog)
 
-		  (set! value-list (cons (top 'integer state) value-list))
-		  (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list)))
-		  
+		  (set! value-list (cons (top 'integer pog) value-list))
+		  (set! is-prime-list (cons (prime? (top 'integer pog)) is-prime-list))
+
+
 		(cond
-		 ((= input (- prime-range 1))
+		 ((= input (- prime-range 2))
 		  (fprintf (current-output-port)
 			   "~n values: ~a  ~n primes: ~a"
-			   value-list is-prime-list))))))))))
+			   value-list is-prime-list)))
+		  		  (fprintf (current-output-port)
+			   "~n top of integer stack ~a" (top 'integer pog))
+
+		  (fprintf (current-output-port)
+			   "~n value of value-lsit ~a" value-list)
+
+
+)
+		  
+		;; debugging
+		(fprintf (current-output-port)
+			 "~n best push program: ~a" best)
+
+		(cond
+		 ((= input (- prime-range 2))
+		  (fprintf (current-output-port)
+			   "~n values: ~a  ~n primes: ~a"
+			   value-list is-prime-list))))) )))
+))
+
 
 
 (define report 
@@ -1734,7 +1763,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
               (individual-program 
                (auto-simplify (individual-program best) error-function report-simplifications #f)))
       (printf "~%Errors: ~A" (individual-errors best))
-      (test-report population)
+      (test-report population generation error-function report-simplifications)
       (printf "~%Total: ~A" (individual-total-error best))
       (printf "~%Scaled: ~A" (individual-scaled-error best))
       (printf "~%Size: ~A" (count-points (individual-program best)))
@@ -2014,7 +2043,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 (schushgp #:error-function (lambda (program)
 			     
-			     (define prime-range 50)
+			     (define prime-range 30)
 			     (define poor-fitness 1000)
 			     (define terrible-fitness (* 100 poor-fitness))
 			     (define totient-scale 10)
