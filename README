@@ -16,9 +16,27 @@ These values are products of primes.
       - research products of primes 
       	- effect on totient values 
 	- heuristic for fitness function (modification) 
+	- figure out fix 
 
-figure out fix 
+Notes on numbers
 
+1681: 41^2, smallest number yielded by the formula n^2 + n + 41 that is not a prime; centered octagonal number
+
+1763: 
+      Divisors of the positive integer 1763
+      	       1,41,43,1763
+
+Links on numbers: 
+
+http://answers.yahoo.com/question/index?qid=20080731102004AAgolke
+http://www.positiveintegers.org/1763
+
+http://answers.yahoo.com/question/index?qid=20100301012458AA58j85
+
+http://hej.sze.hu/ANM/ANM-000926-A/anm000926a/node3.html
+
+Papers to consult?:
+1947 H. Mills proved that there exists a real number A, for which A^3^n is always prime for an arbitrary positive integer n. 
 
 =======
 change 
