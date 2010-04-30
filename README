@@ -2,7 +2,7 @@
 Prime Generating Polynomials 
 
 <<<<<<< HEAD
-Across multiple gp runs, similar error values continue to emerge which prevent progress. 
+Across multiple gp runs, similar error values continue to emerge which prevent progress. To identify the values, take the push program produced and run it in inter.ss. The values will be in reverse order from the errors in the gp run. Thus, if an error is 9 values from the end, then the value from inter.ss is 9 values from the beginning [of the sequence]. 
 
 Values such as: 
 
@@ -17,6 +17,27 @@ These values are products of primes.
       	- effect on totient values 
 	- heuristic for fitness function (modification) 
 	- figure out fix 
+	  - regression to sequence of primes? 
+	  - make multivariable? 
+	  - evolve prime-poly of form L(n)=an+b (Dirichlet's theorem on arithmetic progressions)
+	  - evolve higher prime generating polynomials based on Green-Tao theorem 
+	    - for any k there exists a pair of a and b with the property that L(n) = an + b is prime for any n from 0 to k-1. 
+	      - best known result of such type is for k = 26 
+	  -Term stack 
+	       term 1: 3x^2
+	       term 2: -5x 
+	       term 3: +4 
+
+	       each term on the stack has the following attributes:
+	       	    sign (+/-)
+		    coefficient 
+		    variable (x) {constant for single variable}
+		    exponent (integer n, where n occurs as x^n)
+
+	   - prime generating power series? 
+	   - Lagrange polynomial on multiple gp run results or preexisting prime generating polynomials? 
+	   - It is not known whether there exists a univariate polynomial of degree at least 2 that assumes an infinite number of values that are prime.
+	     - from wikipedia formula for primes page 
 
 Notes on numbers
 
@@ -37,6 +58,12 @@ http://hej.sze.hu/ANM/ANM-000926-A/anm000926a/node3.html
 
 Papers to consult?:
 1947 H. Mills proved that there exists a real number A, for which A^3^n is always prime for an arbitrary positive integer n. 
+
+Ideas to consult: 
+Ulam Spiral : http://en.wikipedia.org/wiki/Ulam_spiral
+http://en.wikipedia.org/wiki/Polynomial
+http://en.wikipedia.org/wiki/Formula_for_primes
+Heegner number [wiki]
 
 =======
 change 
