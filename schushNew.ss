@@ -2049,6 +2049,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 			     (define totient-scale 10)
 			     
 			     (define value-list '())			   
+			     (define ulam-values '(1681 1763 2021 2491 3233 4331 5893 6683 6847 7181 7697 8051 8413 9353))
 			     
 			     (define totient-normalize
 			       (lambda (n)
@@ -2078,6 +2079,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 					    ((<= top-int 0) poor-fitness)
 					    ((> (count-elem top-int value-list) 1) poor-fitness)
 					    ((prime? top-int) 0)
+					    ((= (count-elem top-int ulam-values) 1) 0)
 					    (else (totient-normalize top-int))
 					   )))))
 
