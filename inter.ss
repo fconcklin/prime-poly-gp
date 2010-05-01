@@ -2228,7 +2228,8 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 
 (define value-list '())			   
 (define is-prime-list '())
-(define prime-range 50)
+(define prime-range 20)
+
 
 			     (for/list ([input (in-range prime-range)])
 				       (let* ((state (make-schush-state)))
@@ -2244,14 +2245,12 @@ state)
 				       (set! value-list (cons (top 'integer state) value-list))
 				       (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list))
 				       )
+				       
+				       )
+				       (fprintf (current-output-port)
+						"~n values: ~a  ~n primes: ~a ~n ~n"
+						value-list is-prime-list)
 
-
-				        (fprintf (current-output-port)
-				        		"~n values: ~a  ~n primes: ~a"
-				        		value-list is-prime-list)
-
-
-)
 
 
 ;;;; below works 

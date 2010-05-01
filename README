@@ -9,7 +9,7 @@ Error  	    Values	Product of Primes
 830/1763    1763	41,43
 890/2021    2021 	43,47
 
-These values are products of primes. 
+These values are products of primes. They are also the consecutive non-prime values on an ulam spiral starting at 41. [http://www.algorithm.co.il/blogs/index.php/tag/ulam-spiral/] 
 
 Possibilities moving forward / modifications: 
 
@@ -75,6 +75,11 @@ http://en.wikipedia.org/wiki/Polynomial
 http://en.wikipedia.org/wiki/Formula_for_primes
 Heegner number [wiki]
 http://www.maa.org/editorial/mathgames/mathgames_07_17_06.html
+
+Liouville function 
+moebius function 
+
+
 
 Contests: 
 http://www.recmath.org/contest/PGP/index.php
