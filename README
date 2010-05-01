@@ -28,6 +28,7 @@ Possibilities moving forward / modifications:
 		      http://www.naturalnumbers.org/polyalignment.html
 		      - percentage of primes included in fitness function 
 		      - distinct primes 
+		      - sections of ordered primes
 	  - evolve prime-poly of form L(n)=an+b (Dirichlet's theorem on arithmetic progressions)
 	  - evolve higher prime generating polynomials based on Green-Tao theorem 
 	    - for any k there exists a pair of a and b with the property that L(n) = an + b is prime for any n from 0 to k-1. 

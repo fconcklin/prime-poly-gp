@@ -2014,25 +2014,25 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 ;; Integer symbolic regression of x^3 - 2x^2 - x (problem 5 from the trivial geography chapter) with 
 ;; minimal integer instructions and an input instruction that uses the auxiliary stack.
 
-;; (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
+(define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 
-;; (schushgp #:error-function (lambda (program) 
-;;                              (for/list ((input (in-range 10)))
-;;                                (let ((state (make-schush-state)))
-;;                                  (push input 'integer state)
-;;                                  (push input 'auxiliary state)
-;;                                  (run-schush program state)
-;;                                  (let ((top-int (top 'integer state)))
-;;                                    (if (number? top-int)
-;;                                        (abs (- top-int (- (* input input input) (* 2 input input) input)))
-;;                                        1000)))))
-;;           #:atom-generators (list (lambda () (random 10))
-;;                                   'in
-;;                                   'integer./
-;;                                   'integer.*
-;;                                   'integer.-
-;;                                   'integer.+
-;;                                   'integer.dup))
+(schushgp #:error-function (lambda (program) 
+                             (for/list ((input (in-range 10)))
+                               (let ((state (make-schush-state)))
+                                 (push input 'integer state)
+                                 (push input 'auxiliary state)
+                                 (run-schush program state)
+                                 (let ((top-int (top 'integer state)))
+                                   (if (number? top-int)
+                                       (abs (- top-int (- (* input input input) (* 2 input input) input)))
+                                       1000)))))
+          #:atom-generators (list (lambda () (random 10))
+                                  'in
+                                  'integer./
+                                  'integer.*
+                                  'integer.-
+                                  'integer.+
+                                  'integer.dup))
 
 
 ;;;;;;;;;;;;
@@ -2216,101 +2216,3 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 ;                                          'in))
 ;          #:max-points 100
 ;          #:compensatory-mate-selection #t)
-;(define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
-; (let ((s (make-schush-state)))
-;   (run-schush '(1 2 integer.+) s)
-;   (top 'integer s))
-
-
-
-(require (planet soegaard/math:1:4/math))  
-(define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
-
-(define count-elem
-  (lambda (e l)
-    (cond
-     ((null? l) 0)
-     ((equal? e (car l))
-      (+ 1 (count-elem e (cdr l))))
-     (else (count-elem e (cdr l))))))
-
-
-(define value-list '())			   
-(define is-prime-list '())
-(define prime-range 50)
-
-
-			     (for/list ([input (in-range prime-range)])
-				       (let* ((state (make-schush-state)))
-					 (push input 'integer state) ;; push integers from range onto stack 
-					 (push input 'auxiliary state)
-					 (run-schush
-;; '(((integer.+ integer.- integer.- (integer./ in) in) integer.+ integer./ (integer.+) 4) integer.+ (integer.* (9 integer.* (integer.+ (5 integer.+ (integer.-))) integer.+ (integer./ 1)) integer./) (integer.* (integer./ (((integer./ in) in) integer.* in) integer.+) integer.+) (integer.+ integer.+))
-
-;; '(((integer.- (1 integer.+ integer.- integer.* in) ((integer.* integer.-) integer.*) integer.+) integer.+ (integer./) integer.* (4)) 9 5 (integer.* (integer.- integer.-) ((integer.+) integer.-)) integer.+)
-
-
-;; '(((integer.+ ((in)) (integer.* 3) (integer.+ integer.*) ((integer.+) in integer.-)) ((integer.-) (integer./ 8 integer.+ integer.- integer./ integer.+)) (((integer./ integer.* integer./) 0 (8) integer./) (in)) ((8 integer.+ integer.+) 4)) integer.* (integer.+) integer./)
-
-;; 3 below
-
-;; '((integer.* integer.* (integer.+ (integer.- 2))) integer.- (integer.- (in integer.* integer./ integer./) (integer.* (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.- ((in integer./ integer./ (5) (in)) integer.+ integer.+)))
-
-;; Partial simplification (may beat best):
-
-'((integer.* integer.* (integer.+ (integer.- 2))) integer.- (integer.- (in integer.* integer./ integer./) (integer.* (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.- ((in integer./ integer./ (5) (in)) integer.+ integer.+)))
-
-state)
-
-				       (set! value-list (cons (top 'integer state) value-list))
-				       (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list))
-				       )
-				       
-				       )
-				       (fprintf (current-output-port)
-						"~n values: ~a  ~n primes: ~a ~n # non-primes: ~a ~n"
-						(reverse value-list) (reverse is-prime-list) (count-elem #f is-prime-list))
-;;
-
-;;n^2 + n + 41
-
-(define euler-list '())
-
-(fprintf (current-output-port)
-	 "values of n^2 + n + 41: ~n")
-
-(for ([i (in-range (+ 1 prime-range))])
-     (set! euler-list (cons (+ (square i) i 41) euler-list))
-)
-(fprintf (current-output-port)
-	 "~a ~n" (reverse euler-list))
-
-
-
-;;;; below works 
-
-;; (require (planet soegaard/math:1:4/math))  
-;; (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
-
-;; (define value-list '())			   
-;; (define is-prime-list '())
-
-
-;; 			     (for/list ([input (in-range 20)])
-;; 				       (let* ((state (make-schush-state)))
-;; 					 (push input 'integer state) ;; push integers from range onto stack 
-;; 					 (push input 'auxiliary state)
-;; 					 (run-schush
-;; 					  '((((2) (integer.+ 3) in) integer.+ integer.*) (((integer.* 3 integer.*) integer./ (6 4 integer.+ (integer.+ integer./)) integer.*) (9 integer.+ integer.*) (integer.+ integer.+ ((integer.+)))) integer.* (4) integer.+) state)
-					 
-
-;; 				       (set! value-list (cons (top 'integer state) value-list))
-;; 				       (set! is-prime-list (cons (prime? (top 'integer state)) is-prime-list))
-;; 				       )
-;; 				        (fprintf (current-output-port)
-;; 				        		"~n values: ~a  ~n primes: ~a"
-;; 				        		value-list is-prime-list)
-
-
-;; )
-
