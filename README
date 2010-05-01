@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 Prime Generating Polynomials 
 
-<<<<<<< HEAD
+
 Across multiple gp runs, similar error values continue to emerge which prevent progress. To identify the values, take the push program produced and run it in inter.ss. The values will be in reverse order from the errors in the gp run. Thus, if an error is 9 values from the end, then the value from inter.ss is 9 values from the beginning [of the sequence]. 
 
 Values such as: 
@@ -66,14 +65,9 @@ http://en.wikipedia.org/wiki/Polynomial
 http://en.wikipedia.org/wiki/Formula_for_primes
 Heegner number [wiki]
 
-=======
-change 
->>>>>>> 79290e145dac189611b634a4053a28159f80a9f7
 Threads 
 
 http://docs.plt-scheme.org/reference/eval-model.html#%28part._thread-model%29
 
 something random
 
-=======
->>>>>>> parent of 61c0ab3... added info about threads in README
