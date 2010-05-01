@@ -2245,10 +2245,12 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 					 (push input 'integer state) ;; push integers from range onto stack 
 					 (push input 'auxiliary state)
 					 (run-schush
-'(((integer.+ integer.- integer.- (integer./ in) in) integer.+ integer./ (integer.+) 4) integer.+ (integer.* (9 integer.* (integer.+ (5 integer.+ (integer.-))) integer.+ (integer./ 1)) integer./) (integer.* (integer./ (((integer./ in) in) integer.* in) integer.+) integer.+) (integer.+ integer.+))
+;; '(((integer.+ integer.- integer.- (integer./ in) in) integer.+ integer./ (integer.+) 4) integer.+ (integer.* (9 integer.* (integer.+ (5 integer.+ (integer.-))) integer.+ (integer./ 1)) integer./) (integer.* (integer./ (((integer./ in) in) integer.* in) integer.+) integer.+) (integer.+ integer.+))
 
 ;; '(((integer.- (1 integer.+ integer.- integer.* in) ((integer.* integer.-) integer.*) integer.+) integer.+ (integer./) integer.* (4)) 9 5 (integer.* (integer.- integer.-) ((integer.+) integer.-)) integer.+)
 
+
+'(((integer.+ ((in)) (integer.* 3) (integer.+ integer.*) ((integer.+) in integer.-)) ((integer.-) (integer./ 8 integer.+ integer.- integer./ integer.+)) (((integer./ integer.* integer./) 0 (8) integer./) (in)) ((8 integer.+ integer.+) 4)) integer.* (integer.+) integer./)
 
 state)
 
@@ -2269,7 +2271,7 @@ state)
 (fprintf (current-output-port)
 	 "values of n^2 + n + 41: ~n")
 
-(for ([i (in-range prime-range)])
+(for ([i (in-range (+ 1 prime-range))])
      (set! euler-list (cons (+ (square i) i 41) euler-list))
 )
 (fprintf (current-output-port)
