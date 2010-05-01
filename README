@@ -1,6 +1,5 @@
 Prime Generating Polynomials 
 
-
 Across multiple gp runs, similar error values continue to emerge which prevent progress. To identify the values, take the push program produced and run it in inter.ss. The values will be in reverse order from the errors in the gp run. Thus, if an error is 9 values from the end, then the value from inter.ss is 9 values from the beginning [of the sequence]. 
 
 Values such as: 
@@ -12,12 +11,23 @@ Error  	    Values	Product of Primes
 
 These values are products of primes. 
 
+Possibilities moving forward / modifications: 
+
       - research products of primes 
       	- effect on totient values 
 	- heuristic for fitness function (modification) 
 	- figure out fix 
 	  - regression to sequence of primes? 
 	  - make multivariable? 
+	  - prime or uniquely expressible by prime factors produced by another polynomial
+	    	  http://www.mathpages.com/home/kmath058.htm
+		  - evolve second polynomial?
+	  - proximate prime polynomials? 
+	    	      http://www.naturalnumbers.org/
+		      http://www.naturalnumbers.org/highpolys.html
+		      http://www.naturalnumbers.org/polyalignment.html
+		      - percentage of primes included in fitness function 
+		      - distinct primes 
 	  - evolve prime-poly of form L(n)=an+b (Dirichlet's theorem on arithmetic progressions)
 	  - evolve higher prime generating polynomials based on Green-Tao theorem 
 	    - for any k there exists a pair of a and b with the property that L(n) = an + b is prime for any n from 0 to k-1. 
@@ -64,6 +74,10 @@ Ulam Spiral : http://en.wikipedia.org/wiki/Ulam_spiral
 http://en.wikipedia.org/wiki/Polynomial
 http://en.wikipedia.org/wiki/Formula_for_primes
 Heegner number [wiki]
+http://www.maa.org/editorial/mathgames/mathgames_07_17_06.html
+
+Contests: 
+http://www.recmath.org/contest/PGP/index.php
 
 Threads 
 
