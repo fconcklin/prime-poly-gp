@@ -1763,7 +1763,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
               (individual-program 
                (auto-simplify (individual-program best) error-function report-simplifications #f)))
       (printf "~%Errors: ~A" (individual-errors best))
-      (test-report population generation error-function report-simplifications)
+;;      (test-report population generation error-function report-simplifications)
       (printf "~%Total: ~A" (individual-total-error best))
       (printf "~%Scaled: ~A" (individual-scaled-error best))
       (printf "~%Size: ~A" (count-points (individual-program best)))
