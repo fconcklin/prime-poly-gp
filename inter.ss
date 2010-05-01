@@ -2226,9 +2226,18 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 (require (planet soegaard/math:1:4/math))  
 (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 
+(define count-elem
+  (lambda (e l)
+    (cond
+     ((null? l) 0)
+     ((equal? e (car l))
+      (+ 1 (count-elem e (cdr l))))
+     (else (count-elem e (cdr l))))))
+
+
 (define value-list '())			   
 (define is-prime-list '())
-(define prime-range 20)
+(define prime-range 50)
 
 
 			     (for/list ([input (in-range prime-range)])
@@ -2236,8 +2245,9 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 					 (push input 'integer state) ;; push integers from range onto stack 
 					 (push input 'auxiliary state)
 					 (run-schush
-		'((integer./ integer.* (integer.- (integer.- 2))) integer.- (integer.* (in integer.* integer./ integer.+) (integer.- (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.+ ((in integer./ integer.* (5) (in)) integer.+ integer.+)))
+'(((integer.+ integer.- integer.- (integer./ in) in) integer.+ integer./ (integer.+) 4) integer.+ (integer.* (9 integer.* (integer.+ (5 integer.+ (integer.-))) integer.+ (integer./ 1)) integer./) (integer.* (integer./ (((integer./ in) in) integer.* in) integer.+) integer.+) (integer.+ integer.+))
 
+;; '(((integer.- (1 integer.+ integer.- integer.* in) ((integer.* integer.-) integer.*) integer.+) integer.+ (integer./) integer.* (4)) 9 5 (integer.* (integer.- integer.-) ((integer.+) integer.-)) integer.+)
 
 
 state)
@@ -2248,8 +2258,22 @@ state)
 				       
 				       )
 				       (fprintf (current-output-port)
-						"~n values: ~a  ~n primes: ~a ~n ~n"
-						value-list is-prime-list)
+						"~n values: ~a  ~n primes: ~a ~n # non-primes: ~a ~n"
+						(reverse value-list) (reverse is-prime-list) (count-elem #f is-prime-list))
+;;
+
+;;n^2 + n + 41
+
+(define euler-list '())
+
+(fprintf (current-output-port)
+	 "values of n^2 + n + 41: ~n")
+
+(for ([i (in-range prime-range)])
+     (set! euler-list (cons (+ (square i) i 41) euler-list))
+)
+(fprintf (current-output-port)
+	 "~a ~n" (reverse euler-list))
 
 
 
