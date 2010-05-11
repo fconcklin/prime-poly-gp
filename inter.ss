@@ -2254,11 +2254,18 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 
 ;; 3 below
 
- '((integer.* integer.* (integer.+ (integer.- 2))) integer.- (integer.- (in integer.* integer./ integer./) (integer.* (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.- ((in integer./ integer./ (5) (in)) integer.+ integer.+)))
+ ;; '((integer.* integer.* (integer.+ (integer.- 2))) integer.- (integer.- (in integer.* integer./ integer./) (integer.* (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.- ((in integer./ integer./ (5) (in)) integer.+ integer.+)))
 
 ;; Partial simplification (may beat best):
 
 ;;'((integer.* integer.* (integer.+ (integer.- 2))) integer.- (integer.- (in integer.* integer./ integer./) (integer.* (integer.- (integer.* in) integer.*))) (integer.* (6)) ((in (integer.* (6)) integer.*) integer.+ integer.- ((in integer./ integer./ (5) (in)) integer.+ integer.+)))
+
+;; '(integer.+ integer.- ((2 (((integer.+) integer.-) ((integer./) integer./) integer.* (((integer./ (integer.-) integer.+) integer./ (in integer.*) integer.+ integer.*) (integer.* integer.+) integer.+)) 3 (in integer.+ (integer.+) 8 8) (3)) integer.- integer.* (integer.+)))
+
+
+
+
+'((4 3) ((((integer.* integer.+) 3 integer.* integer.+ (integer.*) (1 integer.- 3)) 5) integer.+ (integer.+ (in 1)) (2) (integer./ in) integer.- integer.*) integer.-)
 
 state)
 

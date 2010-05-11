@@ -2043,7 +2043,7 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 (define-registered in (lambda (state) (push (stack-ref 'auxiliary 0 state) 'integer state)))
 (schushgp #:error-function (lambda (program)
 			     
-			     (define prime-range 30)
+			     (define prime-range 50)
 			     (define poor-fitness 1000)
 			     (define terrible-fitness (* 100 poor-fitness))
 			     (define totient-scale 10)
@@ -2083,7 +2083,8 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 					    ((<= top-int 0) poor-fitness)
 					    ((> (count-elem top-int value-list) 1) poor-fitness)
 					    ((prime? top-int) 0)
-					    ((= (count-elem top-int ulam-values) 1) 0)
+					    ((= (count-elem top-int ulam-values) 1) poor-fitness)
+					    ;;((member top-int (list 1681 1763 2021 2491 3233 4331 5893 6683 6847 7181 7697 8051 8413 9353)) poor-fitness)
 					    (else (totient-normalize top-int))
 					   )))))
 
@@ -2094,6 +2095,6 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
                                   'integer.-
                                   'integer.+
 				  )
-	  #:scale-errors #t
+	  #:scale-errors #f
           #:compensatory-mate-selection #t)
 
