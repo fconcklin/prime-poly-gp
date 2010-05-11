@@ -91,3 +91,27 @@ http://docs.plt-scheme.org/reference/eval-model.html#%28part._thread-model%29
 
 something random
 
+General outline for presentation: 
+
+- initial generations 
+
+  	  - generating for values less than range 41
+	    - return good functions completely prime 
+
+- increase range to 50 
+
+  	   - gp's failing 
+
+	     - similar errors 
+
+	       - translated error values into regular values, 
+
+	       	 	    similar values occuring across runs 
+
+			    values are products of primes > 41 
+
+			    all values are on downward diagonal of ulam spiral beginning at 41 
+
+			    [ explain why prime polynomial cannot generate only primes ] 
+
+			    [ explain ulam spiral ] (why originally began at 41?) 

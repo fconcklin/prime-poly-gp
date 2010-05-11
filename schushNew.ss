@@ -2051,6 +2051,15 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 			     (define value-list '())			   
 			     (define ulam-values '(1681 1763 2021 2491 3233 4331 5893 6683 6847 7181 7697 8051 8413 9353))
 			     
+			     ;; work in progress
+			     (define semiprime?
+			       (lambda (n)
+				 (cond
+				  ((= (phi n) (- n (sqrt n))) poor-fitness) ;; 
+				  
+				  )
+				 ))
+
 			     (define totient-normalize
 			       (lambda (n)
 				 (* totient-scale (- 1 (/ (phi n) n)))))
@@ -2064,11 +2073,6 @@ This code was improved by several helpful suggestions from Thomas Helmuth.
 				  (else (count-elem e (cdr l))))))
 
 			     (for/list ([input (in-range prime-range)])
-				       ;; (cond
-				       ;; 	( (= input (- prime-range 1)) 
-				       ;; 	 (fprintf (current-output-port)
-				       ;; 		  "~n values: ~a  ~n"
-				       ;; 		  (flatten value-list))))
 				       (let* ((state (make-schush-state)))
 					 (push input 'integer state) ;; push integers from range onto stack 
 					 (push input 'auxiliary state)
